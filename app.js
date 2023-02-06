@@ -4,20 +4,9 @@ const express = require("express");
 const app = express();
 
 dotenv.config({ path: "./config.env" });
+require("./db/conn");
 
-const DB = process.env.DATABASE;
 const PORT = process.env.PORT;
-
-mongoose.set("strictQuery", true);
-
-mongoose
-  .connect(DB)
-  .then(() => {
-    console.log("Connected to mongoDb");
-  })
-  .catch((err) => {
-    console.log("Not Connected");
-  });
 
 // middleware
 const middleware = (req, res, next) => {
