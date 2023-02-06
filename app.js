@@ -1,8 +1,12 @@
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 
-const DB = "link";
+dotenv.config({ path: "./config.env" });
+
+const DB = process.env.DATABASE;
+const PORT = process.env.PORT;
 
 mongoose.set("strictQuery", true);
 
@@ -42,6 +46,6 @@ app.get("/signup", (req, res) => {
   res.send(`Hello from signup`);
 });
 
-app.listen(5000, () => {
-  console.log("Server is running at http://localhost:5000/");
+app.listen(PORT, () => {
+  console.log(`Server is running at ${PORT}`);
 });
