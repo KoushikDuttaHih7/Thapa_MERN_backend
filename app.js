@@ -1,5 +1,19 @@
+const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+
+const DB = "link";
+
+mongoose.set("strictQuery", true);
+
+mongoose
+  .connect(DB)
+  .then(() => {
+    console.log("Connected to mongoDb");
+  })
+  .catch((err) => {
+    console.log("Not Connected");
+  });
 
 // middleware
 const middleware = (req, res, next) => {
