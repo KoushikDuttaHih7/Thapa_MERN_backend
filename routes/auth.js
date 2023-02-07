@@ -72,17 +72,22 @@ router.post("/signin", async (req, res) => {
     if (!email || !password) {
       res.status(400).json({ message: "Please fill the form" });
     }
+    // email matching
     const userLogin = await User.findOne({ email: email });
+    // Password hashing
     if (userLogin) {
       const isMatch = await bcrypt.compare(password, userLogin.password);
+      // JWT Token generator
       token = await userLogin.generateAuthToken();
       console.log(token);
       if (!isMatch) {
+        // password invalid
         res.status(400).json({ message: "Invalid Email or Password" });
       } else {
         res.json({ message: "User Login Successfully" });
       }
     } else {
+      // email invalid
       res.status(400).json({ message: "Invalid Email or Password" });
     }
   } catch {
