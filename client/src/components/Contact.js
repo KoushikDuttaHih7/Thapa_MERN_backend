@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div>
       <p>WELCOME</p>
-      <h1>We are MERN Developer</h1>
+      <h1>Contact Page</h1>
     </div>
   );
 };

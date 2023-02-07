@@ -4,7 +4,7 @@ const Login = () => {
   return (
     <div>
       <p>WELCOME</p>
-      <h1>We are MERN Developer</h1>
+      <h1>Login Page</h1>
     </div>
   );
 };

@@ -4,7 +4,7 @@ const Signup = () => {
   return (
     <div>
       <p>WELCOME</p>
-      <h1>We are MERN Developer</h1>
+      <h1>Sign Up page</h1>
     </div>
   );
 };
