@@ -4,101 +4,86 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   return (
     <div>
-      <section className="signup">
-        <div className="container mt-5">
-          <div className="signup-content">
-            <div className="signup-form">
-              <h2 className="form-title">Sign up</h2>
-              <form className="register-form" id="register-form">
-                <div className="form-group">
-                  <label htmlFor="name">
-                    <i class="zmdi zmdi-account "></i>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    autoComplete="off"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">
-                    <i class="zmdi zmdi-email "></i>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    autoComplete="off"
-                    placeholder="Your Email"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="phone">
-                    <i class="zmdi zmdi-phone-in-talk "></i>
-                  </label>
-                  <input
-                    type="number"
-                    name="phone"
-                    id="phone"
-                    autoComplete="off"
-                    placeholder="Your Phone Number"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="work">
-                    <i class="zmdi zmdi-slideshow "></i>
-                  </label>
-                  <input
-                    type="text"
-                    name="work"
-                    id="work"
-                    autoComplete="off"
-                    placeholder="Your Work"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password">
-                    <i class="zmdi zmdi-lock "></i>
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    autoComplete="off"
-                    placeholder="Your Password"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="cpassword">
-                    <i class="zmdi zmdi-lock "></i>
-                  </label>
-                  <input
-                    type="password"
-                    name="cpassword"
-                    id="cpassword"
-                    autoComplete="off"
-                    placeholder="Your Confirm Password"
-                  />
-                </div>
-                <div className="form-group form-button">
-                  <input
-                    type="submit"
-                    name="signup"
-                    id="signup"
-                    className="form-submit"
-                    value="Register"
-                  />
-                </div>
-                <Link to="/login" className="signup-image-link">
-                  I'm an User
-                </Link>
-              </form>
-            </div>
-          </div>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="name"
+            class="form-control"
+            name="name"
+            id="name"
+            autoComplete="off"
+            placeholder="Enter Name"
+          />
         </div>
-      </section>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            autoComplete="off"
+            placeholder="Enter Email"
+          />
+          <small id="emailHelp" class="form-text text-muted">
+            We'll never share your email with anyone else.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="number"
+            class="form-control"
+            name="phone"
+            id="phone"
+            autoComplete="off"
+            placeholder="Enter Phone Number"
+          />
+          <small id="emailHelp" class="form-text text-muted">
+            We'll never share your number with anyone else.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="work">Work</label>
+          <input
+            type="text"
+            class="form-control"
+            name="work"
+            id="work"
+            autoComplete="off"
+            placeholder="Enter Your Work"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group">
+          <label for="cpassword">Confirm Password</label>
+          <input
+            type="cpassword"
+            class="form-control"
+            name="cpassword"
+            id="cpassword"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+      <br />
+      <Link to="/login" className="signup-image-link">
+        I'm an User
+      </Link>
     </div>
   );
 };
