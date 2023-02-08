@@ -1,10 +1,39 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const LoginUser = async (e) => {
+    e.preventDefault();
+    const res = await fetch("/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    const data = await res.json();
+    if (res.status === 400 || !data) {
+      window.alert("Invalid Credentials");
+      console.log("Invalid Credentials");
+    } else {
+      window.alert("Successfull Logged In");
+      console.log("Successfull Logged In");
+      history.push("/");
+    }
+  };
+
   return (
     <div className="container">
-      <form>
+      <form method="POST">
         <div class="form-group">
           <div>
             <h1>Log In</h1>
@@ -15,6 +44,8 @@ const Login = () => {
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
           />
           <small id="emailHelp" class="form-text text-muted">
@@ -27,6 +58,8 @@ const Login = () => {
             type="password"
             class="form-control"
             id="exampleInputPassword1"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
         </div>
@@ -37,7 +70,7 @@ const Login = () => {
           id="signin"
           className="btn btn-primary"
           value="Submit"
-          // onClick={}
+          onClick={LoginUser}
         />
       </form>
       <br />
