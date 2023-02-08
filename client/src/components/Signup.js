@@ -54,6 +54,9 @@ const Signup = () => {
   return (
     <div className="container">
       <form method="POST">
+        <div>
+          <h1>Sign Up</h1>
+        </div>
         <div className="form-group">
           <label for="name">Name</label>
           <input
