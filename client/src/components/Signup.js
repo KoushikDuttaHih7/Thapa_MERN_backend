@@ -137,16 +137,14 @@ const Signup = () => {
           />
         </div>
         <br />
-        <button type="submit" className="btn btn-primary">
-          <input
-            type="submit"
-            name="signup"
-            id="signup"
-            className="btn btn-primary"
-            value="register"
-            onClick={postData}
-          />
-        </button>
+        <input
+          type="submit"
+          name="signup"
+          id="signup"
+          className="btn btn-primary"
+          value="Register"
+          onClick={postData}
+        />
       </form>
       <br />
       <NavLink to="/login" classNameName="signup-image-link">

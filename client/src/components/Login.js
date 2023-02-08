@@ -28,9 +28,14 @@ const Login = () => {
           />
         </div>
         <br />
-        <button type="submit" class="btn btn-primary">
-          Submit
-        </button>
+        <input
+          type="submit"
+          name="signin"
+          id="signin"
+          className="btn btn-primary"
+          value="Submit"
+          // onClick={}
+        />
       </form>
       <br />
       <Link to="/signup" className="signup-image-link">
