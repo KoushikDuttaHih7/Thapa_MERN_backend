@@ -2,13 +2,14 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 // import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Logo from "../images/logo192.png";
 
 const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">
-          Navbar
+          <img src={Logo} alt="logo" width="50rem" height="50rem" srcset="" />
         </Link>
         <button
           className="navbar-toggler"
