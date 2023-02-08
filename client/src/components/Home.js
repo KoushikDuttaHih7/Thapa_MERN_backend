@@ -2,9 +2,18 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div>
-      <p className="pt-5">WELCOME</p>
-      <h1>We are MERN Developer</h1>
+    <div className="home">
+      <div className="home-div h-100 d-flex flex-column justify-content-center align-items-center">
+        <div className="d-flex justify-content-center">
+          <p
+            className="fs-3"
+            style={{ letterSpacing: "0.5em", color: "skyblue" }}
+          >
+            WELCOME
+          </p>
+        </div>
+        <h1>We are the MERN Developer</h1>
+      </div>
     </div>
   );
 };
