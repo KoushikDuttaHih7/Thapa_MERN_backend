@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 const Signup = () => {
+  const history = useHistory();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -21,9 +22,38 @@ const Signup = () => {
     setUser({ ...user, [name]: value });
   };
 
+  const postData = async (e) => {
+    e.preventDefault();
+    // object destructuring
+    const { name, email, phone, work, password, cpassword } = user;
+
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        work,
+        password,
+        cpassword,
+      }),
+    });
+    const data = await res.json();
+    if (res.status === 422 || !data) {
+      window.alert("Invalid Registration");
+      console.log("Invalid Registration");
+    } else {
+      window.alert("Successfull Registration");
+      console.log("Successfull Registration");
+      history.push("/login");
+    }
+  };
   return (
     <div className="container">
-      <form>
+      <form method="POST">
         <div className="form-group">
           <label for="name">Name</label>
           <input
@@ -97,7 +127,7 @@ const Signup = () => {
         <div className="form-group">
           <label for="cpassword">Confirm Password</label>
           <input
-            type="cpassword"
+            type="password"
             className="form-control"
             name="cpassword"
             id="cpassword"
@@ -108,13 +138,20 @@ const Signup = () => {
         </div>
         <br />
         <button type="submit" className="btn btn-primary">
-          Submit
+          <input
+            type="submit"
+            name="signup"
+            id="signup"
+            className="btn btn-primary"
+            value="register"
+            onClick={postData}
+          />
         </button>
       </form>
       <br />
-      <Link to="/login" classNameName="signup-image-link">
+      <NavLink to="/login" classNameName="signup-image-link">
         I'm an User
-      </Link>
+      </NavLink>
     </div>
   );
 };
