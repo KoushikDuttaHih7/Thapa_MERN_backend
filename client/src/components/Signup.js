@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div>
+    <div className="container">
       <form>
         <div class="form-group">
           <label for="name">Name</label>
