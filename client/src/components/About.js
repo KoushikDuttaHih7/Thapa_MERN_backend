@@ -1,9 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const About = () => {
   const history = useHistory();
+  const [userData, setUserData] = useState();
+
   const callAboutPage = async () => {
     try {
       const res = await fetch("/about", {
@@ -16,6 +18,8 @@ const About = () => {
       });
       const data = await res.json();
       console.log(data);
+      setUserData(data);
+
       if (!res.status === 200) {
         const error = new Error(res.error);
         throw error;
@@ -39,8 +43,8 @@ const About = () => {
 
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>Koushiik Dutta</h5>
-                <h6>Web Developer</h6>
+                <h5>{userData.name}</h5>
+                <h6>{userData.work}</h6>
                 <p className="profile-rating mt-3 mb-5">
                   RANKINGS: <span> 1/10</span>{" "}
                 </p>
@@ -127,7 +131,7 @@ const About = () => {
                       <label>User ID</label>
                     </div>
                     <div className="col-md-6">
-                      <p>1</p>
+                      <p>{userData._id}</p>
                     </div>
                   </div>
 
@@ -136,7 +140,7 @@ const About = () => {
                       <label>Name</label>
                     </div>
                     <div className="col-md-6">
-                      <p>Koushik</p>
+                      <p>{userData.name}</p>
                     </div>
                   </div>
 
@@ -145,7 +149,7 @@ const About = () => {
                       <label>Email</label>
                     </div>
                     <div className="col-md-6">
-                      <p>test.gmail.com</p>
+                      <p>{userData.email}</p>
                     </div>
                   </div>
 
@@ -154,7 +158,7 @@ const About = () => {
                       <label>Phone</label>
                     </div>
                     <div className="col-md-6">
-                      <p>1234567890</p>
+                      <p>{userData.phone}</p>
                     </div>
                   </div>
 
@@ -163,7 +167,7 @@ const About = () => {
                       <label>Profession</label>
                     </div>
                     <div className="col-md-6">
-                      <p>Web developer</p>
+                      <p>{userData.work}</p>
                     </div>
                   </div>
                 </div>
