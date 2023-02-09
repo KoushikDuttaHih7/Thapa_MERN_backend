@@ -175,6 +175,12 @@ input:focus {
   opacity: 0.8;
 }
 
+.welcome{
+  font-size: 40px;
+  letter-spacing: 0.5em;
+  color: skyblue
+}
+
 @media only screen and (max-width: 480){
   .notfound .notfound-404 h1{
     font-size: 162px;

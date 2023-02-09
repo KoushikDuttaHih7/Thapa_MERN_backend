@@ -28,12 +28,7 @@ const Home = () => {
     <div className="home">
       <div className="home-div h-100 d-flex flex-column justify-content-center align-items-center">
         <div className="d-flex justify-content-center">
-          <p
-            className="fs-3"
-            style={{ letterSpacing: "0.5em", color: "skyblue" }}
-          >
-            WELCOME
-          </p>
+          <p className="welcome">WELCOME</p>
         </div>
         <h1>{userName}</h1>
         <h2>{show ? "Happy to see you Here " : "We are the MERN Developer"}</h2>
