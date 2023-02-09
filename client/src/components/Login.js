@@ -1,9 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../App";
 
 const Login = () => {
+  const { state, dispatch } = useContext(UserContext);
+
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,10 +24,9 @@ const Login = () => {
     const data = await res.json();
     if (res.status === 400 || !data) {
       window.alert("Invalid Credentials");
-      console.log("Invalid Credentials");
     } else {
+      dispatch({ type: "USER", payload: true });
       window.alert("Successfull Logged In");
-      console.log("Successfull Logged In");
       history.push("/");
     }
   };
