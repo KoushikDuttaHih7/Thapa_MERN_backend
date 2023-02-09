@@ -4,13 +4,13 @@ import { useHistory } from "react-router-dom";
 
 const About = () => {
   const history = useHistory();
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({});
 
   const callAboutPage = async () => {
     try {
       const res = await fetch("/about", {
         method: "GET",
-        header: {
+        headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },

@@ -18,13 +18,13 @@ const PORT = process.env.PORT;
 //   res.send(`Hello from about me`);
 // });
 
-app.get("/contact", (req, res) => {
-  res.send(`Hello from contact`);
-});
+// app.get("/contact", (req, res) => {
+//   res.send(`Hello from contact`);
+// });
 
-app.get("/signin", (req, res) => {
-  res.send(`Hello from signin`);
-});
+// app.get("/signin", (req, res) => {
+//   res.send(`Hello from signin`);
+// });
 
 app.get("/signup", (req, res) => {
   res.send(`Hello from signup`);
