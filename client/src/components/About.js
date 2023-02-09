@@ -1,10 +1,37 @@
 import React from "react";
-// import image from "../images/hero.jpg";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 const About = () => {
+  const history = useHistory();
+  const callAboutPage = async () => {
+    try {
+      const res = await fetch("/about", {
+        method: "GET",
+        header: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log(data);
+      if (!res.status === 200) {
+        const error = new Error(res.error);
+        throw error;
+      }
+    } catch (err) {
+      console.log(err);
+      history.push("/login");
+    }
+  };
+  useEffect(() => {
+    callAboutPage();
+  });
   return (
     <>
       <div className="container emp-profile">
-        <form action="">
+        <form method="GET">
           <div className="row">
             <div className="col-md-4">
               {/* <img src={image} className="photo" alt="profile photo" /> */}
@@ -61,15 +88,27 @@ const About = () => {
             <div className="col-md-4">
               <div className="profile-work">
                 <p>Links</p>
-                <a href="https://www.google.com/" target="_blank">
+                <a
+                  href="https://www.google.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Email
                 </a>
                 <br />
-                <a href="https://www.google.com/" target="_blank">
+                <a
+                  href="https://www.google.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   linkedIn
                 </a>
                 <br />
-                <a href="https://www.google.com/" target="_blank">
+                <a
+                  href="https://www.google.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Github
                 </a>
                 <br />
