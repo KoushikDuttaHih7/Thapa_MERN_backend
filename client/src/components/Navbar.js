@@ -5,14 +5,14 @@ import Logo from "../images/logo192.png";
 import { UserContext } from "../App";
 
 const Navbar = () => {
-  const { state, dispatch } = useContext(UserContext);
+  const { state } = useContext(UserContext);
   const RenderMenu = () => {
     if (state) {
       return (
-        <div>
+        <>
           <li className="nav-item active">
             <NavLink className="nav-link" to="/">
-              Home <span className="sr-only">(current)</span>
+              Home
             </NavLink>
           </li>
           <li className="nav-item">
@@ -30,11 +30,11 @@ const Navbar = () => {
               Logout
             </NavLink>
           </li>
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
+        <>
           <li className="nav-item active">
             <NavLink className="nav-link" to="/">
               Home <span className="sr-only">(current)</span>
@@ -60,7 +60,7 @@ const Navbar = () => {
               Register
             </NavLink>
           </li>
-        </div>
+        </>
       );
     }
   };
